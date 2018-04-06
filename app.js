@@ -1,21 +1,17 @@
-const app = require('express')()
+const express = require('express')
+const app = express()
 const bodyParser = require('body-parser')
 const validator = require('validator')
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
-
 const port = 8080
 
 app.use(bodyParser.urlencoded({ extended: true }))
-db.defaults({ emails: [] }).write()
+app.use(express.static('public'))
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+db.defaults({ emails: [] }).write()
 
 app.post('/api/addEmail', (req, res) => 
 {

@@ -1,0 +1,79 @@
+body {
+	font-family: Helvetica, Sans-Serif;
+	background-color: #5f27cd;
+}
+
+body h2 {
+	color: white;
+	font-weight: 600;
+	font-size: 34px;
+}
+
+body h6 {
+	color: white;
+	font-weight: 200;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+#main-container {
+	margin-top: 10%;
+}
+
+#main-container input, select {
+	width: 100%;
+	height: 42px !important;
+	background-color: white !important;
+	color: #495057;
+	border: none;
+	outline: none;
+	border-radius: 4px;
+}
+
+#main-container input[type="email"] {
+	padding-left: 12px;
+}
+
+#main-container input[type="button"] {
+	background-color: #2e86de !important;
+	color: white !important;
+	text-align: center !important;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#main-container input[type="button"]:hover {
+	background-color: #388ce0 !important;
+}
+
+#inputs-row {
+	margin-top: 10px;
+}
+
+#submit-btn-row {
+	margin-top: 15px;
+}
+
+#email-input {
+	margin-top: 5px;
+}
+
+#select-input {
+	margin-top: 5px;
+}
+
+#err-msg {
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #ff6b6b;
+}
+
+#green-line {
+	display: inline-block;
+	width: 50px;
+	height: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #2ecc71;
+}

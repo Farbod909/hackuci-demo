@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HackUCI Demo Client</title>
+		<meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<div class="container" id="main-container">
+			<h2>Stay up to date with our latest news and events by joining our newsletter!</h2>
+			<span id="green-line"></span>
+			<h6>SUBSCRIBE FOR THE LATEST NEWS</h6>
+			<div class="row" id="inputs-row">
+				<div class="col-md-7">
+					<input type="email" id="email-input" placeholder="Email Address" />
+				</div>
+				<div class="col-md-5">
+					<select class="form-control" id="select-input">
+						<option value="" disabled selected>Interested in...</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+				</div>
+			</div>
+			<p id="err-msg"></p>
+			<div class="row" id="submit-btn-row">
+				<div class="col-12">
+					<input type="button" id="signup-btn" value="Sign up now" />
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"   
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   
+			crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	function addEmail() {
+		var email = $("#email-input").val()
+		$.post("/api/addEmail", {
+			"email": email
+		}).done(function(response) {
+			$("#err-msg").html("")
+			console.log(response)
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+			$("#err-msg").html("Please enter a valid email address.")
+		})
+	}
+	$(document).ready(function() {
+		$("#signup-btn").click(function() {
+			addEmail()
+		})
+		$("#email-input").keypress(function(e) {
+			if(e.which == 13) {
+		        addEmail()
+		    }
+		})
+	})
+	</script>
+</html>
