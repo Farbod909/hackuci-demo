@@ -1,4 +1,4 @@
-# hackuci-demo-server
+# hackuci-demo
 ## To run
 First install all dependencies
 ``` 
