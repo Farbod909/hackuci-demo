@@ -8,3 +8,4 @@ Then run the server
 ```
 node app.js
 ```
+Then visit ```http://localhost:8080/``` in your browser.
